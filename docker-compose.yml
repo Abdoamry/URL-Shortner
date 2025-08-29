@@ -1,1 +1,18 @@
+version: '3.8'
 
+services:
+  api:
+    build: ./api
+    container_name: url-shortner-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: url-shortner-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data

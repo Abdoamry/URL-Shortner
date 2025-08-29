@@ -4,14 +4,14 @@ import (
 	"os"
 	"strings"
 )
-
+//! Protect link
 func EnforceHTTPS(url string) string {
 	if url[:5] != "https" {
 		return "https://" + url
 	}
 	return url
 }
-
+//! Remove domain error
 func RemoveDomainError(url string) bool {
 	if url == os.Getenv("DOMAIN") {
 		return false
